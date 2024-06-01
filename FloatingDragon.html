@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Floating Dragon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+            /* Additional CSS for styling */
+            .yes-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+            }
+            .yes-column {
+                flex-basis: 48%; /* Adjust as needed */
+            }
+            .yes h2 {
+                font-weight: bold;
+                font-size: 1.2em;
+                margin-bottom: 0.5rem;
+            }
+            .yes ul {
+                list-style: none;
+                padding: 0;
+            }
+            .yes li {
+                margin-bottom: 0.5rem;
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+								
+									<h1>NASA'S FLOATING DRAGON CHALLENGE: The Floating Longhorn</h1>
+									<p>A vehicle built to endure extreme conditions, including a descent from approximately 30 kilometers in altitude, execute an autonomous landing, and securely protect and retrieve onboard data collection equipment. For more information on the challenge and our project, visit the <a href="https://floatingdragon.nianet.org/">FLOATing Dragon Website</a> or watch our <a href="https://www.youtube.com/watch?v=2pGb9zZPRWk&t=402s&ab_channel=NathanDiaz">video</a>.</p>
+								</header>
+								<div class="image main"><img src="images/node.png" alt="" /></div>
+								<p>The system features a slim, cylindrical-shaped node with four actuated grid fin surfaces to slow descent and maintain directional control, a single parachute recovery system, and a shock-absorbent, aerodynamic TPU nosecone to safely deliver the data vault to the ground. Manufacturing consists of a wet fiberglass layup for the body, 3D printed parts for various systems and mechanisms, and a custom-made aluminum bracket. The system’s flight computer is an ESP32 microcontroller on a custom PCB with a backup onboard computer. Additionally, the guidance algorithm was created from a Simulink 6DOF model using MATLAB. The project is still in development and scheduled for its first and final drop test from a scientific balloon in the summer of 2024 where NASA will decide the winning team. All systems, parameters, and structures have passed testing and we are expecting a positive outcome. <br />
+									The following sections will include areas of the project which I primarily developed and focused on.<p>
+								<h2>Deployment Subsystem</h2>
+								<div class="image main"><img src="images/2.png" alt="" /></div>
+								<p>The deployment subsystem is responsible for releasing the node from the NASA gondola and balloon when the command is sent to drop. It features a 3D printed case, a servo, two aluminum pins, and a 3D printed rack and pinion system. After a signal is received from the ground, the flight computer uses it to execute a command which activates the servo integrated with the rack and pinion system. This then pulls the pins inwards, releasing the node from the mounting bracket attached to the gondola. The design fulfilled its purpose with 0% instance of jamming and 100% deployment during numerous tests under various parameters. Additionally, a fail-safe system was put in place to avoid early deployment.</p>
+								<h2>Mounting Bracket</h2>
+								<div class="image main"><img src="images/3.png" alt="" /></div>
+								<p>The mounting mechanism consists of an aluminum mounting bracket which attaches the node to the gondola during ascent. One of the primary issues when designing the mounting mechanism centered around mass. One of NASA’s guidelines included a maximum weight of 10kg for the entire system. Because of this, this design was made prioritizing structural strength and mass efficiency to allow greater mass allocations to other systems in the node. This design was made with aluminum thickness of 0.09”.
+									Metal bending was used to join the two adjacent aluminum plates, reducing the need to use corner brackets and reducing its overall mass. To further leverage the mass of the bracket, mass was eliminated in areas with negligible stress. When comparing the final product to the initial iteration of this design, it was concluded that there was a mass reduction of approximately 1kg while achieving better stress contours. Additionally, the mounting bracket was shown to successfully carry the weight of the node for the dedicated time of ascent with no chance of failure.</p>
+								<h2>Grid Fins and Controls</h2>
+								<div class="image main"><img src="images/4.png" alt="" /></div>
+								<p>The controls system is comprised of four identical 3D printed grid fins attached to 60kg servo motors using servo clamps and heated inserts. Surrounding the stem of each grid fin are bearings held in place by custom made bearing mounts. The whole system is held together by a custom-made controls mount. The coordinates of the target location are utilized to define a quadrilateral coordinate system. The required latitudinal and longitudinal displacements are then calculated, initiating control routines until conditions are satisfied. The vehicle then achieves diagonal displacement by altering the latitudinal and longitudinal displacement controls. Additionally, to increase drag and reduce falling velocity, the area of air contact of the grid fins is increased (while keeping it stable) by synchronously varying the angle of all four grid fins in alternating rotating directions. 3D path simulations displayed that the vehicle is able to reach the target location within a 6000m horizontal distance from the target, which has been calculated to be well above what the vehicle is expected to travel during ascent. This means that the grid fins and the controls systems work as intended and the data vault is able to reach the target location.</p>
+								<h2>Packaging Solution</h2>
+								<div class="image main"><img src="images/5.png" alt="" /></div>
+								<p>The packaging container was designed to safeguard the vehicle from any potential damage that could occur during transportation. Additionally, it is meant to facilitate the secure and efficient handling of the vehicle at various stages of the project, from loading to unloading. This design features wooden crate, chosen for its durability, ease of construction, and cost-effectiveness. The overall shape of the crate consists of an outer frame made of wooden beams and OSB board panels. An inner panel with a hole to fit the diameter of the node was incorporated as a means to hold the vehicle in place. Foam is used as a dampener and shock-absorbing material at the crate’s contact points with the node, and a foam block positioned at the bottom of the crate will distribute the load excreted on the nose cone. A vertical, nose-down orientation is essential to maintain the integrity of the vehicle as well as the effectiveness of the crate. A static load analysis revealed that the crate will be able to withstand the load of the vehicle for an extended period of time. Additionally, further tests were conducted which showed that the crate successfully shields the vehicle from typical shocks and vibrations experienced during transportation.</p>
+							</section>
+
+					</div>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
